@@ -37,9 +37,17 @@ Tidak diperlukan instalasi dependency atau server backend. Font dari Google Font
 
 Tiga screenshot hasil menjalankan aplikasi tersedia di folder `screenshots/`:
 
-1. `01-form-utama.png` — tampilan utama dan form input barang.
-2. `02-validasi-error.png` — pesan validasi merah setelah form kosong/tidak valid dikirim.
-3. `03-keranjang-pembayaran.png` — tabel pesanan, diskon 10%, serta pembayaran dan kembalian.
+### 1. Form input utama
+
+![Tampilan utama dan form input barang](screenshots/01-form-utama.png)
+
+### 2. Validasi input
+
+![Pesan validasi saat form tidak valid](screenshots/02-validasi-error.png)
+
+### 3. Keranjang dan hasil pembayaran
+
+![Daftar barang, diskon, pembayaran, dan kembalian](screenshots/03-keranjang-pembayaran.png)
 
 ## Penjelasan teknis
 
