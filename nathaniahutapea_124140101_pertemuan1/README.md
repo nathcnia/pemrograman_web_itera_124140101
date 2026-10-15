@@ -4,7 +4,7 @@
 
 - **Nama:** Nathania Hutapea
 - **NIM:** 124140101
-- **Kelas praktikum:** [Lengkapi kelas RA/RB]
+- **Kelas praktikum:** RA
 
 > Nama dan NIM diisi berdasarkan konfigurasi Git lokal dan nama direktori proyek. Pastikan identitas serta kelas sudah benar sebelum pengumpulan.
 
