@@ -1,4 +1,4 @@
-# Mini POS — Racik
+# Mini POS — Nuju Coffee
 
 ## Identitas
 
@@ -10,7 +10,7 @@
 
 ## Deskripsi aplikasi
 
-Racik adalah aplikasi kasir sederhana untuk kantin atau toko kampus. Aplikasi ini membantu kasir mencatat barang, melihat subtotal dan total pesanan, menerapkan diskon otomatis, serta menghitung kecukupan pembayaran dan kembalian. Proyek dibuat sebagai latihan validasi form, manipulasi DOM, fungsi, array/objek, dan penyimpanan persisten menggunakan `localStorage`.
+Nuju Coffee adalah aplikasi kasir sederhana untuk kedai kopi kampus. Aplikasi ini membantu kasir mencatat barang, melihat subtotal dan total pesanan, menerapkan diskon otomatis, serta menghitung kecukupan pembayaran dan kembalian. Proyek dibuat sebagai latihan validasi form, manipulasi DOM, fungsi, array/objek, dan penyimpanan persisten menggunakan `localStorage`.
 
 ## Menjalankan aplikasi
 
