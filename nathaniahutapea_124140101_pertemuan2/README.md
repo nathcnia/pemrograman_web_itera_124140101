@@ -19,7 +19,7 @@ Ruang Fokus adalah dashboard ringan untuk membantu mahasiswa ITERA mengatur tuga
 - [x] Pencarian berdasarkan judul, mata kuliah, atau catatan; tekan `/` untuk fokus ke kolom pencarian.
 - [x] Penyimpanan otomatis menggunakan `localStorage`, termasuk tugas contoh saat pertama kali dibuka.
 - [x] Cuaca real-time kampus ITERA melalui Open-Meteo, tanpa API key; tersedia pesan fallback bila koneksi gagal.
-- [x] Layout responsif dan feedback toast untuk aksi pengguna.
+- [x] Layout responsif bertema biru langit dan feedback toast untuk aksi pengguna.
 
 ## Cara menjalankan
 
