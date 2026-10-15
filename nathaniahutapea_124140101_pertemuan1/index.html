@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <meta
+      name="description"
+      content="Aplikasi kasir sederhana untuk mengelola keranjang, diskon, dan pembayaran kantin kampus."
+    />
+    <title>Racik — Kasir Kampus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navigasi utama">
+        <a class="brand" href="#utama" aria-label="Racik, beranda">
+          <span class="brand-mark" aria-hidden="true">r.</span>
+          <span>racik<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="sidebar-label">MENU</div>
+        <a class="nav-link nav-link-active" href="#utama" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+          <span>Kasir</span>
+        </a>
+        <a class="nav-link" href="#keranjang">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          <span>Keranjang</span>
+          <span class="nav-count" id="sidebar-count">0</span>
+        </a>
+
+        <div class="sidebar-bottom">
+          <div class="store-card">
+            <span class="store-icon" aria-hidden="true">☕</span>
+            <div>
+              <strong>Kantin Kampus</strong>
+              <span>Kasir aktif</span>
+            </div>
+            <span class="online-dot" aria-label="Online"></span>
+          </div>
+          <div class="sidebar-credit">Dibuat untuk transaksi<br />yang lebih praktis.</div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="utama">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Workspace</span><span class="breadcrumb-slash">/</span><strong>Kasir</strong></div>
+          <div class="topbar-right">
+            <span class="today-date" id="today-date"></span>
+            <span class="avatar" aria-label="Kasir">K</span>
+          </div>
+        </header>
+
+        <section class="page-heading">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> POINT OF SALE</div>
+            <h1>Kasir <span>kantin.</span></h1>
+            <p class="page-description">Catat pesanan, hitung total, beres dalam sekejap.</p>
+          </div>
+          <div class="transaction-pill"><span></span> Transaksi baru</div>
+        </section>
+
+        <div class="workspace-grid">
+          <section class="panel product-panel" aria-labelledby="form-title">
+            <div class="panel-heading">
+              <div>
+                <div class="section-kicker">LANGKAH 01</div>
+                <h2 id="form-title">Tambah barang</h2>
+              </div>
+              <span class="heading-icon" aria-hidden="true">＋</span>
+            </div>
+            <p class="panel-description">Masukkan detail barang untuk menambahkannya ke pesanan.</p>
+
+            <form id="product-form" novalidate>
+              <div class="field-group">
+                <label for="product-name">Nama barang <span class="required-mark">*</span></label>
+                <input id="product-name" name="name" type="text" placeholder="Contoh: Kopi susu gula aren" autocomplete="off" aria-describedby="name-error" />
+                <p class="field-error" id="name-error" aria-live="polite"></p>
+              </div>
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="product-price">Harga satuan <span class="required-mark">*</span></label>
+                  <div class="input-prefix"><span>Rp</span><input id="product-price" name="price" type="number" min="500" step="1" placeholder="12.000" inputmode="numeric" aria-describedby="price-error" /></div>
+                  <p class="field-error" id="price-error" aria-live="polite"></p>
+                </div>
+                <div class="field-group qty-field">
+                  <label for="product-qty">Jumlah <span class="required-mark">*</span></label>
+                  <input id="product-qty" name="qty" type="number" min="1" step="1" value="1" inputmode="numeric" aria-describedby="qty-error" />
+                  <p class="field-error" id="qty-error" aria-live="polite"></p>
+                </div>
+              </div>
+              <button class="button button-primary add-button" type="submit">
+                <span class="button-plus" aria-hidden="true">＋</span> Tambahkan ke pesanan
+              </button>
+            </form>
+
+            <div class="form-note"><span aria-hidden="true">✳</span> Semua harga dalam Rupiah (IDR)</div>
+          </section>
+
+          <section class="panel summary-panel" aria-labelledby="summary-title">
+            <div class="panel-heading summary-heading">
+              <div>
+                <div class="section-kicker">RINGKASAN</div>
+                <h2 id="summary-title">Total pesanan</h2>
+              </div>
+              <span class="receipt-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 3.5h12v17l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>
+              </span>
+            </div>
+            <div class="summary-rows">
+              <div class="summary-row"><span>Subtotal</span><strong id="subtotal-value">Rp0</strong></div>
+              <div class="summary-row discount-row"><span>Diskon <span class="discount-hint">(10% · min. Rp50.000)</span></span><strong id="discount-value">− Rp0</strong></div>
+              <div class="summary-divider"></div>
+              <div class="grand-total"><span>Total akhir</span><strong id="total-value">Rp0</strong></div>
+            </div>
+            <div class="discount-status" id="discount-status" role="status">
+              <span class="status-sparkle" aria-hidden="true">✳</span>
+              <span>Belanja <strong id="remaining-value">Rp50.000</strong> lagi untuk diskon 10%.</span>
+            </div>
+            <div class="payment-field field-group">
+              <label for="payment-amount">Uang bayar</label>
+              <div class="input-prefix payment-input"><span>Rp</span><input id="payment-amount" type="number" min="0" step="1" placeholder="Masukkan nominal" inputmode="numeric" /></div>
+            </div>
+            <div class="change-row" aria-live="polite">
+              <span id="change-label">Kembalian</span>
+              <strong id="change-value">—</strong>
+            </div>
+            <p class="payment-message" id="payment-message" aria-live="polite">Masukkan jumlah uang yang diterima.</p>
+            <button class="button button-secondary new-transaction" id="reset-button" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 2.6-6.4L3 8"/><path d="M3 3v5h5"/></svg>
+              Transaksi baru
+            </button>
+          </section>
+        </div>
+
+        <section class="panel cart-panel" id="keranjang" aria-labelledby="cart-title">
+          <div class="cart-heading">
+            <div>
+              <div class="section-kicker">LANGKAH 02</div>
+              <div class="cart-title-line"><h2 id="cart-title">Daftar pesanan</h2><span class="item-count" id="item-count">0 barang</span></div>
+            </div>
+            <span class="cart-caption">Pesananmu tersimpan otomatis</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th scope="col">NO.</th><th scope="col">NAMA BARANG</th><th scope="col">HARGA SATUAN</th><th scope="col">QTY</th><th scope="col">SUBTOTAL</th><th scope="col"><span class="visually-hidden">Aksi</span></th></tr>
+              </thead>
+              <tbody id="cart-items"></tbody>
+            </table>
+            <div class="empty-state" id="empty-state">
+              <span class="empty-illustration" aria-hidden="true">🧾</span>
+              <strong>Belum ada pesanan</strong>
+              <span>Barang yang ditambahkan akan muncul di sini.</span>
+            </div>
+          </div>
+          <div class="cart-footer"><span><span class="save-indicator"></span> Keranjang tersimpan di perangkat ini</span><span id="footer-item-count">0 item</span></div>
+        </section>
+
+        <footer class="page-footer"><span>racik<span class="brand-period">.</span> <span class="footer-separator">·</span> Kasir sederhana, hari yang lebih ringan.</span><span>Mini POS <span class="footer-separator">/</span> Praktikum PAW</span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
