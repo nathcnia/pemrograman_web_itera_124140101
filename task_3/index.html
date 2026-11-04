@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff3f7" />
+    <meta name="description" content="Form pendaftaran kegiatan kampus dengan contoh pengiriman data melalui query string GET." />
+    <title>Form Pendaftaran — Ruang Tumbuh</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Ruang Tumbuh, halaman pendaftaran">
+        <span class="brand-mark" aria-hidden="true">rt</span>
+        <span>ruang<span>tumbuh</span><i>.</i></span>
+      </a>
+      <div class="header-note"><span class="status-dot"></span> Pendaftaran dibuka</div>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro-panel" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow">PROGRAM PENGEMBANGAN DIRI · ITERA</p>
+          <h1 id="page-title">Temukan ruang untuk<br /><span>tumbuh bersama.</span></h1>
+          <p class="intro-description">Isi formulir singkat ini untuk mendaftar ke sesi berbagi dan belajar bersama komunitas kampus.</p>
+          <div class="event-meta">
+            <span class="meta-icon" aria-hidden="true">✳</span>
+            <span><strong>Ruang Tumbuh 2026</strong><small>Sabtu, 28 November · Aula C ITERA</small></span>
+          </div>
+        </div>
+        <div class="intro-art" aria-hidden="true">
+          <span class="art-sparkle sparkle-a">✦</span><span class="art-sparkle sparkle-b">✧</span>
+          <div class="art-circle circle-back"></div><div class="art-circle circle-front"></div>
+          <div class="art-card"><span>RT</span><i></i><i></i><i></i><b>GROW<br />TOGETHER</b></div>
+          <span class="art-stem stem-one"></span><span class="art-stem stem-two"></span>
+        </div>
+        <span class="intro-index">01 <i>/ 02</i></span>
+      </section>
+
+      <section class="form-card" aria-labelledby="form-title">
+        <div class="form-heading">
+          <div>
+            <p class="eyebrow">FORMULIR PENDAFTARAN</p>
+            <h2 id="form-title">Kenalan dulu, yuk!</h2>
+            <p>Lengkapi informasi di bawah ini dengan benar.</p>
+          </div>
+          <span class="required-note"><b>*</b> Wajib diisi</span>
+        </div>
+
+        <form action="detail.html" method="get">
+          <div class="form-grid">
+            <label class="field" for="nama">
+              <span>Nama lengkap <b>*</b></span>
+              <input id="nama" name="nama" type="text" placeholder="Contoh: Nathania Hutapea" autocomplete="name" required />
+            </label>
+            <label class="field" for="nim">
+              <span>NIM <b>*</b></span>
+              <input id="nim" name="nim" type="text" inputmode="numeric" placeholder="Contoh: 124140101" required />
+            </label>
+            <label class="field" for="email">
+              <span>Email aktif <b>*</b></span>
+              <input id="email" name="email" type="email" placeholder="nama@email.com" autocomplete="email" required />
+            </label>
+            <label class="field" for="program-studi">
+              <span>Program studi <b>*</b></span>
+              <select id="program-studi" name="program_studi" required>
+                <option value="" disabled selected>Pilih program studi</option>
+                <option>Teknik Informatika</option>
+                <option>Teknik Sipil</option>
+                <option>Teknik Lingkungan</option>
+                <option>Arsitektur</option>
+                <option>Program studi lainnya</option>
+              </select>
+            </label>
+            <label class="field" for="angkatan">
+              <span>Angkatan <b>*</b></span>
+              <select id="angkatan" name="angkatan" required>
+                <option value="" disabled selected>Pilih angkatan</option>
+                <option>2023</option><option>2024</option><option>2025</option><option>2026</option>
+              </select>
+            </label>
+            <label class="field" for="nomor-telepon">
+              <span>Nomor WhatsApp</span>
+              <input id="nomor-telepon" name="nomor_telepon" type="tel" placeholder="08xxxxxxxxxx" autocomplete="tel" />
+            </label>
+          </div>
+
+          <fieldset class="interest-fieldset">
+            <legend>Topik yang ingin kamu eksplor <span>(pilih salah satu)</span></legend>
+            <div class="interest-options">
+              <label class="interest-option"><input type="radio" name="topik" value="kepemimpinan" checked /><span>Kepemimpinan</span></label>
+              <label class="interest-option"><input type="radio" name="topik" value="karier" /><span>Persiapan karier</span></label>
+              <label class="interest-option"><input type="radio" name="topik" value="kreativitas" /><span>Kreativitas</span></label>
+            </div>
+          </fieldset>
+
+          <label class="field field-full" for="alasan">
+            <span>Apa yang ingin kamu dapatkan dari kegiatan ini?</span>
+            <textarea id="alasan" name="alasan" rows="3" placeholder="Ceritakan singkat harapanmu..."></textarea>
+          </label>
+
+          <div class="form-bottom">
+            <p><span aria-hidden="true">♧</span> Data dikirim melalui query string pada URL untuk demonstrasi metode GET.</p>
+            <button class="submit-button" type="submit">Lanjutkan pendaftaran <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </section>
+      <footer class="page-footer"><span>© 2026 Ruang Tumbuh · ITERA</span><span>Dibuat untuk belajar dan bertumbuh <i>✦</i></span></footer>
+    </main>
+  </body>
+</html>
